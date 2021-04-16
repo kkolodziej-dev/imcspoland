@@ -2275,6 +2275,23 @@ input, select, textarea {
 				text-align: center;
 			}
 
+			.icon.minor {
+				display: inline-block;
+				border-radius: 100%;
+				padding: 0.65em;
+				cursor: default;
+			}
+	
+				.icon.minor:before {
+					display: inline-block;
+					font-size: 4rem;
+					width: 2em;
+					height: 2em;
+					line-height: 2.2em;
+					border-radius: 100%;
+					text-align: center;
+				}
+
 		.icon.alt {
 			display: inline-block;
 			border: solid 1px;
@@ -2308,6 +2325,11 @@ input, select, textarea {
 
 		.icon.style5 {
 			color: #8cc9f0;
+		}
+
+		.icon.style6 {
+			color: #000000;
+			display: inline-grid;
 		}
 
 		@media screen and (max-width: 1680px) {
@@ -2815,8 +2837,8 @@ input, select, textarea {
 
 		.features li {
 			width: calc(33.33333% - 2em);
-			margin-left: 2em;
-			margin-top: 3em;
+			/* margin-left: 2em;
+			margin-top: 3em; */
 			padding: 0;
 		}
 
