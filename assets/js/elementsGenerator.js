@@ -18,24 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentURL = window.location.href;
 
     //populate elements
-    switch (currentURL) {
-        case currentURL.includes('references.html'):
-            setElementsArray('documents');
-            populateElementFields('documents');
-            break;
-        case currentURL.includes('gallery.html'):
-            setElementsArray('gallery');
-            populateElementFields('gallery');
-            break;
+    if(currentURL.includes('references.html')) {
+        setElementsArray('documents');
+        populateElementFields('documents');
+    } else if(currentURL.includes('gallery.html')) {
+        setElementsArray('gallery');
+        populateElementFields('gallery');
     }
-
-    // if(currentURL.includes('references.html')) {
-    //     setElementsArray('documents');
-    //     populateElementFields('documents');
-    // } else if(currentURL.includes('gallery.html')) {
-    //     setElementsArray('gallery');
-    //     populateElementFields('gallery');
-    // }
     
     function populateElementFields(flag) {
         let folderPath, elementList;
