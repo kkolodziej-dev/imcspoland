@@ -2,20 +2,26 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const DOCUMENT_FOLDER_PATH = './entities/documents/';
     const PHOTO_FOLDER_PATH = './entities/gallery/';
-    //ToDo get list of available documents to loop through
-    getDocumentNames();
-    const DOCUMENT_NAMES_ARRAY = ['document1.pdf', 'document1.docx'];
-    const PHOTO_NAMES_ARRAY = ['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg'];
+    const DOCUMENT_NAMES = 'documentNames.txt'
+    const PHOTO_NAMES = 'imageNames.txt'
+
+    
+    let DOCUMENT_NAMES_ARRAY = [];
+    let PHOTO_NAMES_ARRAY = [];
+    // let DOCUMENT_NAMES_ARRAY = ['document1.pdf', 'document1.docx'];
+    // let PHOTO_NAMES_ARRAY = ['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg'];
 
     let documentListElement = document.getElementById('documentList');
     let galleryContainerElement = document.getElementById('galleryContainer');
 
+
     let currentURL = window.location.href;
-    
     //populate elements
     if(currentURL.includes('references.html')) {
+        setElementsArray('documents');
         populateElementFields('documents');
     } else if(currentURL.includes('gallery.html')) {
+        setElementsArray('gallery');
         populateElementFields('gallery');
     }
     
@@ -101,11 +107,36 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.removeChild(element);
       }
 
-    function getDocumentNames() {
-        fetch("./entities/documents/documentNames.txt")
-        .then(response => response.text())
-        .then(data => console.log(data));
+    function setElementsArray(flag) {
+        let lFolderPath;
+        let lNamesFile;
+        switch (flag) {
+            case 'documents':
+                lFolderPath = DOCUMENT_FOLDER_PATH;
+                lNamesFile = DOCUMENT_NAMES;
+                break;
+            case 'gallery':
+                lFolderPath = PHOTO_FOLDER_PATH;
+                lNamesFile = PHOTO_NAMES;
+                break;
+        }
+
+        let rawText;
+
+        fetch(lFolderPath + lNamesFile)
+            .then(response => rawText = response.text());
+
+        let parsedArr = rawText.split(';');
+
+        switch (flag) {
+            case 'documents':
+                DOCUMENT_NAMES_ARRAY = parsedArr;
+                console.log(parsedArr)
+                break;
+            case 'gallery':
+                PHOTO_NAMES_ARRAY = parsedArr;
+                console.log(parsedArr)
+                break;
+        }
     }
     });
-    
-    
