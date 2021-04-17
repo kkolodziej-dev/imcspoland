@@ -122,12 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
 
-        let rawText = await fetch(lFolderPath + lNamesFile)
-        .then(response => response.text())
-        .then(data => data)
-        .catch(() => {
-            console.error("There was an error fetching " + lFolderPath + lNamesFile);
-        })
+        let rawText = await fetchRawText(lFolderPath + lNamesFile);
         console.log("rawText" + rawText);
 
         // rawText = await Promise.resolve(
@@ -155,8 +150,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function fetchRawText(path) {
-        // const lResponse = await fetch(path);
-        // const lRawText = await lResponse.text();
-        // return lRawText;
+        fetch(path)
+            .then(response => response.text())
+            .then(data => data)
+            .catch(() => {
+                console.error("There was an error fetching " + path);
+            })
         }
     });
