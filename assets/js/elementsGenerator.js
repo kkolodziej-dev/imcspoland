@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const PHOTO_NAMES_ARRAY = ['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg'];
 
     let documentListElement = document.getElementById('documentList');
-    let photoListElement = document.getElementById('photoList');
+    let galleryContainerElement = document.getElementById('galleryContainer');
 
     let currentURL = window.location.href;
     
@@ -33,24 +33,38 @@ document.addEventListener('DOMContentLoaded', () => {
         let elementArray = [];
         //construct the documents
         elementList.forEach(e => {
-            let tempSpan = document.createElement("span");
-            tempSpan.innerText = e;
+            let tempContainerMember;
             switch (flag) {
                 case 'documents':
-                    tempSpan.className = "icon minor style6 fad fa-file-alt";
+                    tempContainerMember = document.createElement("span");
+                    tempContainerMember.innerText = e;
+                    tempContainerMember.setAttribute('title', e);
+                    tempContainerMember.className = "icon minor style6 fad fa-file-alt";
+                    let tempLi;
+                    tempLi = document.createElement("li");
+                    setEventListeners(folderPath, tempContainerMember, e);
+                    tempLi.appendChild(tempContainerMember);
+                    elementArray.push(tempLi);
                     break;
                 case 'gallery':
+                    //create single image
                     let tempImg = document.createElement("img");
-                    tempImg.className = "image"
-                    console.log(tempImg)
                     tempImg.setAttribute('src', folderPath + e);
-                    tempSpan.appendChild(tempImg);
+                    tempImg.setAttribute('alt', e);
+                    //append image to span
+                    let tempInnerSpan = document.createElement("span");
+                    tempInnerSpan.className = "image fit";
+                    tempInnerSpan.appendChild(tempImg);
+                    //append span to div
+                    tempContainerMember = document.createElement("div");
+                    tempContainerMember.className = "col-4";
+                    tempContainerMember.id = e;
+                    tempContainerMember.setAttribute('title', e);
+                    tempContainerMember.appendChild(tempInnerSpan);
+                    setEventListeners(folderPath, tempContainerMember, e);
+                    elementArray.push(tempContainerMember);
                     break;
             }
-            setEventListeners(tempSpan, folderPath);
-            let tempLi = document.createElement("li");
-            tempLi.appendChild(tempSpan);
-            elementArray.push(tempLi);
         })
 
         //append ready document objects to the document list element
@@ -60,15 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     documentListElement.appendChild(e);
                     break;
                 case 'gallery':
-                    photoListElement.appendChild(e);
+                    galleryContainerElement.appendChild(e);
                     break;
             } 
         })
     }
     
-    function setEventListeners(e, folderPath) {
+    function setEventListeners(folderPath, e, text) {
         e.addEventListener('click', () =>  {
-            download(folderPath, e.innerText);
+            download(folderPath, text);
         });
         
         e.addEventListener('mouseover', () => {
@@ -79,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function download(folderPath, elementName) {
         let element = document.createElement('a');
         element.setAttribute('href', folderPath + elementName);
+        element.setAttribute('target', '_blank');
         element.style.display = 'none';
         document.body.appendChild(element);
         element.click();
