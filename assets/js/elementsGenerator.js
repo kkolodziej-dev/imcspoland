@@ -9,9 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let documentListElement = document.getElementById('documentList');
     let photoListElement = document.getElementById('photoList');
 
-    //populate documents
-    populateElementFields('documents');
-    populateElementFields('gallery');
+    let currentURL = window.location.href;
+    
+    //populate elements
+    if(currentURL.includes('references.html')) {
+        populateElementFields('documents');
+    } else if(currentURL.includes('gallery.html')) {
+        populateElementFields('gallery');
+    }
     
     function populateElementFields(flag) {
         let folderPath, elementList;
@@ -29,8 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
         //construct the documents
         elementList.forEach(e => {
             let tempSpan = document.createElement("span");
-            tempSpan.className = "icon minor style6 fad fa-file-alt";
             tempSpan.innerText = e;
+            switch (flag) {
+                case 'documents':
+                    tempSpan.className = "icon minor style6 fad fa-file-alt";
+                    break;
+                case 'gallery':
+                    let tempImg = document.createElement("img");
+                    tempImg.className = "image"
+                    console.log(tempImg)
+                    tempImg.setAttribute('src', folderPath + e);
+                    tempSpan.appendChild(tempImg);
+                    break;
+            }
             setEventListeners(tempSpan, folderPath);
             let tempLi = document.createElement("li");
             tempLi.appendChild(tempSpan);
