@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    const DOCUMENT_FOLDER_PATH = 'https://github.com/kkolodziej-dev/imcspoland/raw/get_files_from_git/entities/documents/';
-    const PHOTO_FOLDER_PATH = 'https://github.com/kkolodziej-dev/imcspoland/raw/get_files_from_git/entities/gallery/';
+    const DOCUMENT_FOLDER_PATH = './entities/documents/';
+    const PHOTO_FOLDER_PATH = './entities/gallery/';
     //ToDo get list of available documents to loop through
     getDocumentNames();
     const DOCUMENT_NAMES_ARRAY = ['document1.pdf', 'document1.docx'];
@@ -103,7 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getDocumentNames() {
         fetch("./entities/documents/documentNames.txt")
-        .then(console.log);
+        .then(response => response.text())
+        .then(data => console.log(data));
     }
     });
     
