@@ -124,6 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let rawText;
 
+        fetchRawText(lFolderPath + lNamesFile).then(response => {
+            rawText = response;
+        })
+
         fetch(lFolderPath + lNamesFile)
             .then(response => response.text())
             .then(data => rawText = data);
@@ -141,4 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
     }
+
+    async function fetchRawText(path) {
+        const lResponse = await fetch(path);
+        const lRawText = await lResponse.text();
+        return lRawText;
+        }
     });
