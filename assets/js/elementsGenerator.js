@@ -16,14 +16,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     let currentURL = window.location.href;
+
     //populate elements
-    if(currentURL.includes('references.html')) {
-        setElementsArray('documents');
-        populateElementFields('documents');
-    } else if(currentURL.includes('gallery.html')) {
-        setElementsArray('gallery');
-        populateElementFields('gallery');
+    switch (currentURL) {
+        case currentURL.includes('references.html'):
+            setElementsArray('documents');
+            populateElementFields('documents');
+            break;
+        case currentURL.includes('gallery.html'):
+            setElementsArray('gallery');
+            populateElementFields('gallery');
+            break;
     }
+
+    // if(currentURL.includes('references.html')) {
+    //     setElementsArray('documents');
+    //     populateElementFields('documents');
+    // } else if(currentURL.includes('gallery.html')) {
+    //     setElementsArray('gallery');
+    //     populateElementFields('gallery');
+    // }
     
     function populateElementFields(flag) {
         let folderPath, elementList;
@@ -124,7 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let rawText;
 
         fetch(lFolderPath + lNamesFile)
-            .then(response => rawText = response.text());
+            .then(response => response.text())
+            .then(data => rawText = data);
 
         let parsedArr = rawText.split(';');
 
