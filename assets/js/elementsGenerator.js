@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    const DOCUMENT_FOLDER_PATH = 'https://github.com/kkolodziej-dev/imcspoland/raw/master/images/documents/';
-    const PHOTO_FOLDER_PATH = 'https://github.com/kkolodziej-dev/imcspoland/raw/master/images/gallery/';
+    const DOCUMENT_FOLDER_PATH = 'https://github.com/kkolodziej-dev/imcspoland/raw/get_files_from_git/entities/documents/';
+    const PHOTO_FOLDER_PATH = 'https://github.com/kkolodziej-dev/imcspoland/raw/get_files_from_git/entities/gallery/';
     //ToDo get list of available documents to loop through
+    getDocumentNames();
     const DOCUMENT_NAMES_ARRAY = ['document1.pdf', 'document1.docx'];
     const PHOTO_NAMES_ARRAY = ['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg'];
 
@@ -99,6 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
         element.click();
         document.body.removeChild(element);
       }
+
+    function getDocumentNames() {
+        fetch("https://kkolodziej-dev.github.io/imcspoland/entities/documents/documentNames.txt")
+        .then(console.log);
+    }
     });
     
     
