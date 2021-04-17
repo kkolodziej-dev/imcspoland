@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function fetchRawText(path) {
+    async function fetchRawText(path) {
         fetch(path)
             .then(response => response.text())
             .then(data => data)
