@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
     function getDocumentNames() {
-        fetch("https://kkolodziej-dev.github.io/imcspoland/entities/documents/documentNames.txt")
+        fetch("./entities/documents/documentNames.txt")
         .then(console.log);
     }
     });
