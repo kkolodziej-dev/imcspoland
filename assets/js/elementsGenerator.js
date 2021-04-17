@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let rawText;
-        fetchRawText(lFolderPath + lNamesFile)
+        await fetchRawText(lFolderPath + lNamesFile)
             .then(response => rawText = response);
         console.log("rawText" + rawText);
 
