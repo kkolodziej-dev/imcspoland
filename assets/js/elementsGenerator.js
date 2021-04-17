@@ -122,13 +122,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
 
-        let rawText;
+        let rawText = await fetch(lFolderPath + lNamesFile)
+        .then(response => response.text())
+        .then(data => data)
+        .catch(() => {
+            console.error("There was an error fetching " + lFolderPath + lNamesFile);
+        })
+        console.log("rawText" + rawText);
 
-        rawText = await Promise.resolve(
-            fetchRawText(lFolderPath + lNamesFile)
-            .then(response => { 
-                response;
-            }));
+        // rawText = await Promise.resolve(
+        //     fetchRawText(lFolderPath + lNamesFile)
+        //     .then(response => { 
+        //         response;
+        //     }));
 
         // rawText = Promise.resolve(fetch(lFolderPath + lNamesFile)
         //     .then(response => response.text())
@@ -148,9 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    async function fetchRawText(path) {
-        const lResponse = await fetch(path);
-        const lRawText = await lResponse.text();
-        return lRawText;
+    function fetchRawText(path) {
+        // const lResponse = await fetch(path);
+        // const lRawText = await lResponse.text();
+        // return lRawText;
         }
     });
