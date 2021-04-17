@@ -124,14 +124,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let rawText;
 
-        fetchRawText(lFolderPath + lNamesFile)
-            .then(response => {
-                rawText = response;
-        })
+        // rawText = fetchRawText(lFolderPath + lNamesFile)
+        //     .then(response => {
+        //         rawText = response;
+        // })
 
-        // fetch(lFolderPath + lNamesFile)
-        //     .then(response => response.text())
-        //     .then(data => rawText = data);
+        rawText = await Promise.resolve(fetch(lFolderPath + lNamesFile)
+            .then(response => response.text())
+            .then(data => data));
 
         let parsedArr = rawText.split(';');
 
