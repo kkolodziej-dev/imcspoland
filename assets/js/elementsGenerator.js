@@ -1,20 +1,30 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     
-    const DOCUMENT_FOLDER_PATH = 'https://github.com/kkolodziej-dev/imcspoland/raw/master/images/documents/';
-    const PHOTO_FOLDER_PATH = 'https://github.com/kkolodziej-dev/imcspoland/raw/master/images/gallery/';
-    //ToDo get list of available documents to loop through
-    const DOCUMENT_NAMES_ARRAY = ['document1.pdf', 'document1.docx'];
-    const PHOTO_NAMES_ARRAY = ['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg'];
+    const DOCUMENT_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/documents/';
+    const DOCUMENT_NAMES = 'documentNames.txt'
+    // const DOCUMENT_FOLDER_PATH = './entities/documents/';
+    const PHOTO_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/gallery/';
+    // const PHOTO_FOLDER_PATH = './entities/gallery/';
+    const PHOTO_NAMES = 'imageNames.txt'
+
+    
+    let DOCUMENT_NAMES_ARRAY = [];
+    let PHOTO_NAMES_ARRAY = [];
+    // let DOCUMENT_NAMES_ARRAY = ['document1.pdf', 'document1.docx'];
+    // let PHOTO_NAMES_ARRAY = ['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg'];
 
     let documentListElement = document.getElementById('documentList');
     let galleryContainerElement = document.getElementById('galleryContainer');
 
+
     let currentURL = window.location.href;
-    
+
     //populate elements
     if(currentURL.includes('references.html')) {
+        await setElementsArray('documents');
         populateElementFields('documents');
     } else if(currentURL.includes('gallery.html')) {
+        await setElementsArray('gallery');
         populateElementFields('gallery');
     }
     
@@ -99,6 +109,38 @@ document.addEventListener('DOMContentLoaded', () => {
         element.click();
         document.body.removeChild(element);
       }
+
+    async function setElementsArray(flag) {
+        let lFolderPath;
+        let lNamesFile;
+        switch (flag) {
+            case 'documents':
+                lFolderPath = DOCUMENT_FOLDER_PATH;
+                lNamesFile = DOCUMENT_NAMES;
+                break;
+            case 'gallery':
+                lFolderPath = PHOTO_FOLDER_PATH;
+                lNamesFile = PHOTO_NAMES;
+                break;
+        }
+
+        let rawText = await Promise.resolve(
+            fetch(lFolderPath + lNamesFile)
+                .then(response => response.text())
+                .then(data => data));
+
+        rawText[rawText.length - 1] === ';' ? rawText = rawText.slice(0, -1) : 0
+        const parsedArr = rawText.split(';');
+
+        switch (flag) {
+            case 'documents':
+                DOCUMENT_NAMES_ARRAY = parsedArr;
+                console.log(parsedArr)
+                break;
+            case 'gallery':
+                PHOTO_NAMES_ARRAY = parsedArr;
+                console.log(parsedArr)
+                break;
+        }
+    }
     });
-    
-    
