@@ -1,8 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     
-    const DOCUMENT_FOLDER_PATH = './entities/documents/';
-    const PHOTO_FOLDER_PATH = './entities/gallery/';
+    const DOCUMENT_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/documents/';
     const DOCUMENT_NAMES = 'documentNames.txt'
+    // const DOCUMENT_FOLDER_PATH = './entities/documents/';
+    const PHOTO_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/gallery/';
+    // const PHOTO_FOLDER_PATH = './entities/gallery/';
     const PHOTO_NAMES = 'imageNames.txt'
 
     
@@ -19,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //populate elements
     if(currentURL.includes('references.html')) {
-        setElementsArray('documents');
+        await setElementsArray('documents');
         populateElementFields('documents');
     } else if(currentURL.includes('gallery.html')) {
-        setElementsArray('gallery');
+        await setElementsArray('gallery');
         populateElementFields('gallery');
     }
     
@@ -108,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.removeChild(element);
       }
 
-    function setElementsArray(flag) {
+    async function setElementsArray(flag) {
         let lFolderPath;
         let lNamesFile;
         switch (flag) {
@@ -122,12 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
 
-        let rawText;
-        await fetchRawText(lFolderPath + lNamesFile)
-            .then(response => rawText = response);
-        console.log("rawText" + rawText);
+        let rawText = await Promise.resolve(
+            fetch(lFolderPath + lNamesFile)
+                .then(response => response.text())
+                .then(data => data));
 
-        let parsedArr = rawText.split(';');
+        rawText[rawText.length - 1] === ';' ? rawText = rawText.slice(0, -1) : 0
+        const parsedArr = rawText.split(';');
 
         switch (flag) {
             case 'documents':
@@ -139,11 +142,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(parsedArr)
                 break;
         }
-    }
-
-    async function fetchRawText(path) {
-        const response = await fetch(path);
-        const names = await response.text();
-        return names;
     }
     });
