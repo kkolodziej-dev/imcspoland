@@ -1,11 +1,6 @@
 @import url(fontawesome-all.min.css);
 @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
 
-/*
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -100,10 +95,10 @@ input, select, textarea {
 
 	body {
 		background-color: #ff0000;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #ffbdc5 15%, #fd3737 85%);
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #ffbdc5 15%, #fd3737 85%);
-		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #ffbdc5 15%, #fd3737 85%);
-		background-image: url("images/overlay.png"), linear-gradient(45deg, #fd9f9f 15%, #fd3737 85%);
+		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #ff1919 15%, #ff5050 85%);
+		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #ff1c36 15%, #ff4949 85%);
+		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #ff1c36 15%, #ff4f4f 85%);
+		background-image: url("images/overlay.png"), linear-gradient(45deg, #ff1b1b 15%, #fd4545 85%);
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
