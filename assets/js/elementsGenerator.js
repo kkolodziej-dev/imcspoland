@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     tempContainerMember.id = e;
                     tempContainerMember.setAttribute('title', e);
                     tempContainerMember.appendChild(tempInnerSpan);
-                    setEventListeners(folderPath, tempContainerMember, e);
+                    setEventListeners(folderPath, tempInnerSpan, e);
                     elementArray.push(tempContainerMember);
                     break;
             }
@@ -91,13 +91,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     function setEventListeners(folderPath, e, text) {
+        e.addEventListener('mouseover', () => {
+            e.style.cursor = 'pointer';
+        })
+
+        if (folderPath === PHOTO_FOLDER_PATH) {
+            return;
+        }
         e.addEventListener('click', () =>  {
             download(folderPath, text);
         });
         
-        e.addEventListener('mouseover', () => {
-            e.style.cursor = 'pointer';
-        })
+
     }
     
     function download(folderPath, elementName) {
