@@ -131,17 +131,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function setElementsArray(flag) {
         let lFolderPath;
         let lNamesFile;
-        let lWhatToRemove;
         switch (flag) {
             case 'documents':
                 lFolderPath = DOCUMENT_FOLDER_PATH;
                 lNamesFile = DOCUMENT_NAMES;
-                lWhatToRemove = DOCUMENT_NAMES;
                 break;
             case 'gallery':
                 lFolderPath = PHOTO_FOLDER_PATH;
                 lNamesFile = PHOTO_NAMES;
-                lWhatToRemove = PHOTO_NAMES;
                 break;
         }
 
@@ -151,17 +148,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                 .then(data => data));
 
         const parsedArr = rawText.split('\n');
-        parsedArr.removeChild(lWhatToRemove);
-        parsedArr.removeChild("");
+        let filteredArr = parsedArr.filter(e => {
+            if (e === lNamesFile || e === "") return;
+            return e;
+        })
 
         switch (flag) {
             case 'documents':
-                DOCUMENT_NAMES_ARRAY = parsedArr;
-                console.log(parsedArr)
+                DOCUMENT_NAMES_ARRAY = filteredArr;
                 break;
             case 'gallery':
-                PHOTO_NAMES_ARRAY = parsedArr;
-                console.log(parsedArr)
+                PHOTO_NAMES_ARRAY = filteredArr;
                 break;
         }
     }
