@@ -31,7 +31,3 @@ jobs:
               pwd
               ls entities/gallery > entities/gallery/imageNames.txt
               ls entities/documents > entities/documents/documentNames.txt
-              git diff
-              git add .
-              git commit -m "update pic&doc"
-              git push
