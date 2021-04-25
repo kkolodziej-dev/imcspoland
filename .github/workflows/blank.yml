@@ -27,7 +27,7 @@ jobs:
       - name: Run a multi-line script
         run: |
         pic_prefix = "entities/gallery/"
-          for file in $pic_prefix + "*"
+          for file in entities/gallery/*
             do
               $file = ${string#"$pic_prefix"}
               echo $file
