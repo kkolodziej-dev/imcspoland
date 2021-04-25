@@ -3695,6 +3695,20 @@ input, select, textarea {
 
 		}
 
+
+/* Date */
+
+.newsDate {
+	font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 13px;
+    line-height: 16px;
+}
 /* Footer */
 
 	#footer {

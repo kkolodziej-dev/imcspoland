@@ -1,0 +1,30 @@
+{
+    "news": [
+        {
+            "title": "title1",
+            "content": "content1",
+            "date": "date1"
+        },
+        {
+            "title": "title2",
+            "content": "content2",
+            "date": "date2"
+        },
+        {
+            "title": "title3",
+            "content": "content3",
+            "date": "date3"
+        },
+        {
+            "title": "title4",
+            "content": "content4",
+            "date": "date4"
+        },
+        {
+            "title": "",
+            "content": "",
+            "date": ""
+        }
+    ],
+    "display": 3
+}
