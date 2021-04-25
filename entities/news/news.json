@@ -1,0 +1,30 @@
+{
+    "news": [
+        {
+            "title": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ips",
+            "content": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+            "date": "date1"
+        },
+        {
+            "title": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ips",
+            "content": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+            "date": "date2"
+        },
+        {
+            "title": "title3",
+            "content": "content3",
+            "date": "date3"
+        },
+        {
+            "title": "title4",
+            "content": "content4",
+            "date": "date4"
+        },
+        {
+            "title": "",
+            "content": "",
+            "date": ""
+        }
+    ],
+    "display": 5
+}
