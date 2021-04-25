@@ -1,8 +1,8 @@
 let windowSize = window.innerWidth;
-const DOCUMENT_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/documents/';
+const DOCUMENT_FOLDER_PATH = 'entities/documents/';
 const DOCUMENT_NAMES = 'documentNames.txt'
 // const DOCUMENT_FOLDER_PATH = './entities/documents/';
-const PHOTO_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/gallery/';
+const PHOTO_FOLDER_PATH = 'entities/gallery/';
 // const PHOTO_FOLDER_PATH = './entities/gallery/';
 const PHOTO_NAMES = 'imageNames.txt'
 
