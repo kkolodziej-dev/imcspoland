@@ -26,11 +26,12 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          for file in entities/gallery/*
+        pic_prefix = "entities/gallery/"
+          for file in $pic_prefix*
             do
-            $file = ${string#"entities/gallery/"}
-            echo $file
-            echo lolo
+              $file = ${string#"$pic_prefix"}
+              echo "{$file}"
+              echo lolo
             done
           echo Add other actions to build,
           echo test, and deploy your project.
