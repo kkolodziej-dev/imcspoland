@@ -1,13 +1,13 @@
 {
     "news": [
         {
-            "title": "title1",
-            "content": "content1",
+            "title": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ips",
+            "content": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
             "date": "date1"
         },
         {
-            "title": "title2",
-            "content": "content2",
+            "title": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ips",
+            "content": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
             "date": "date2"
         },
         {
@@ -26,5 +26,5 @@
             "date": ""
         }
     ],
-    "display": 3
+    "display": 5
 }

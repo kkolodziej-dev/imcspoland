@@ -175,6 +175,10 @@ input, select, textarea {
 		margin: 0 0 2em 0;
 	}
 
+	.news0margin {
+		margin: 0 0 0 0;
+	}
+
 		p.content {
 			-moz-columns: 20em 2;
 			-webkit-columns: 20em 2;
@@ -3708,6 +3712,11 @@ input, select, textarea {
     font-stretch: normal;
     font-size: 13px;
     line-height: 16px;
+	margin: 0 0 0 0;
+}
+
+.singleNews {
+	margin: 0 0 2em 0;
 }
 /* Footer */
 

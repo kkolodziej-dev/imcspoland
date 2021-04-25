@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
 
-const NEWS_DISPLAY = 3;
 const NEWS_PATH = "https://kkolodziej-dev.github.io/imcspoland/entities/news/news.json";
+let NEWS_DISPLAY = 3;
 
 let newsContainer = document.getElementById("newsContent");
 
@@ -14,15 +14,19 @@ async function setNewsArray() {
             .then(data => data));
 
     NEWS_DISPLAY = lJson.display;
+    if (NEWS_DISPLAY > lJson.news.size) console.error("News display number is greater that the actual news number");
 
-    for (let i = 0; i <= NEWS_DISPLAY; i++) {
+    for (let i = 0; i < NEWS_DISPLAY; i++) {
         let lDiv = document.createElement("div");
+        lDiv.className = "singleNews";
 
         let lH3 = document.createElement("h3");
+        // lH3.className = "news0margin";
         lH3.innerText = lJson.news[i].title;
         lDiv.appendChild(lH3);
 
         let lP = document.createElement("p");
+        lP.className = "news0margin";
         lP.innerText = lJson.news[i].content;
         lDiv.appendChild(lP);
 
