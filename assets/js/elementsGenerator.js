@@ -1,24 +1,34 @@
+let windowSize = window.innerWidth;
+const DOCUMENT_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/documents/';
+const DOCUMENT_NAMES = 'documentNames.txt'
+// const DOCUMENT_FOLDER_PATH = './entities/documents/';
+const PHOTO_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/gallery/';
+// const PHOTO_FOLDER_PATH = './entities/gallery/';
+const PHOTO_NAMES = 'imageNames.txt'
+
+let DOCUMENT_NAMES_ARRAY = [];
+let PHOTO_NAMES_ARRAY = [];
+
+let currentURL = window.location.href;
+
+let documentListElement = document.getElementById('documentList');
+let galleryContainerElement = document.getElementById('galleryContainer');
+
+window.addEventListener('resize', () => {
+    windowSize = window.innerWidth;
+    console.log(windowSize)
+    if (windowSize > 736) {
+        galleryContainerElement.childNodes.forEach(element => {
+            element.className = "col-4"
+        })
+    } else {
+        galleryContainerElement.childNodes.forEach(element => {
+            element.className = "col-10"
+        })
+    }
+})
+
 document.addEventListener('DOMContentLoaded', async () => {
-    
-    const DOCUMENT_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/documents/';
-    const DOCUMENT_NAMES = 'documentNames.txt'
-    // const DOCUMENT_FOLDER_PATH = './entities/documents/';
-    const PHOTO_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/gallery/';
-    // const PHOTO_FOLDER_PATH = './entities/gallery/';
-    const PHOTO_NAMES = 'imageNames.txt'
-
-    
-    let DOCUMENT_NAMES_ARRAY = [];
-    let PHOTO_NAMES_ARRAY = [];
-    // let DOCUMENT_NAMES_ARRAY = ['document1.pdf', 'document1.docx'];
-    // let PHOTO_NAMES_ARRAY = ['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg'];
-
-    let documentListElement = document.getElementById('documentList');
-    let galleryContainerElement = document.getElementById('galleryContainer');
-
-
-    let currentURL = window.location.href;
-
     //populate elements
     if(currentURL.includes('references.html')) {
         await setElementsArray('documents');
@@ -50,8 +60,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     tempContainerMember.innerText = e;
                     tempContainerMember.setAttribute('title', e);
                     tempContainerMember.className = "icon minor style6 fad fa-file-alt";
-                    let tempLi;
-                    tempLi = document.createElement("li");
+
+                    let tempLi = document.createElement("li");
                     setEventListeners(folderPath, tempContainerMember, e);
                     tempLi.appendChild(tempContainerMember);
                     elementArray.push(tempLi);
@@ -61,13 +71,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                     let tempImg = document.createElement("img");
                     tempImg.setAttribute('src', folderPath + e);
                     tempImg.setAttribute('alt', e);
+
                     //append image to span
                     let tempInnerSpan = document.createElement("span");
                     tempInnerSpan.className = "image fit";
                     tempInnerSpan.appendChild(tempImg);
+
                     //append span to div
                     tempContainerMember = document.createElement("div");
-                    tempContainerMember.className = "col-4";
+                    tempContainerMember.className = windowSize > 736 ? "col-4" : "col-10";
                     tempContainerMember.id = e;
                     tempContainerMember.setAttribute('title', e);
                     tempContainerMember.appendChild(tempInnerSpan);
