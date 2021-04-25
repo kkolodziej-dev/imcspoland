@@ -28,8 +28,9 @@ jobs:
         run: |
           for file in entities/gallery/*
             do
-             echo $file
-             echo lolo
+            $file = ${string#"entities/gallery/"}
+            echo $file
+            echo lolo
             done
           echo Add other actions to build,
           echo test, and deploy your project.
