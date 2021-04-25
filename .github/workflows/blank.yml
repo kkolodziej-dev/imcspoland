@@ -27,10 +27,10 @@ jobs:
       - name: Run a multi-line script
         run: |
         pic_prefix = "entities/gallery/"
-          for file in $pic_prefix*
+          for file in $pic_prefix + "*"
             do
               $file = ${string#"$pic_prefix"}
-              echo $file}
+              echo $file
               echo lolo
             done
           echo Add other actions to build,
