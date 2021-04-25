@@ -33,3 +33,4 @@ jobs:
               ls entities/gallery > entities/gallery/imageNames.txt
               ls entities/documents
               ls entities/documents > entities/documents/documentNames.txt
+              git status
