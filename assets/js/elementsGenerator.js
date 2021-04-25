@@ -147,17 +147,18 @@ document.addEventListener('DOMContentLoaded', async () => {
                 .then(response => response.text())
                 .then(data => data));
 
-        rawText[rawText.length - 1] === ';' ? rawText = rawText.slice(0, -1) : 0
-        const parsedArr = rawText.split(';');
+        const parsedArr = rawText.split('\n');
+        let filteredArr = parsedArr.filter(e => {
+            if (e === lNamesFile || e === "") return;
+            return e;
+        })
 
         switch (flag) {
             case 'documents':
-                DOCUMENT_NAMES_ARRAY = parsedArr;
-                console.log(parsedArr)
+                DOCUMENT_NAMES_ARRAY = filteredArr;
                 break;
             case 'gallery':
-                PHOTO_NAMES_ARRAY = parsedArr;
-                console.log(parsedArr)
+                PHOTO_NAMES_ARRAY = filteredArr;
                 break;
         }
     }
