@@ -1,8 +1,8 @@
 let windowSize = window.innerWidth;
-const DOCUMENT_FOLDER_PATH = 'entities/documents/';
+const DOCUMENT_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/documents/';
 const DOCUMENT_NAMES = 'documentNames.txt'
 // const DOCUMENT_FOLDER_PATH = './entities/documents/';
-const PHOTO_FOLDER_PATH = 'entities/gallery/';
+const PHOTO_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/gallery/';
 // const PHOTO_FOLDER_PATH = './entities/gallery/';
 const PHOTO_NAMES = 'imageNames.txt'
 
@@ -131,14 +131,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function setElementsArray(flag) {
         let lFolderPath;
         let lNamesFile;
+        let lWhatToRemove;
         switch (flag) {
             case 'documents':
                 lFolderPath = DOCUMENT_FOLDER_PATH;
                 lNamesFile = DOCUMENT_NAMES;
+                lWhatToRemove = DOCUMENT_NAMES;
                 break;
             case 'gallery':
                 lFolderPath = PHOTO_FOLDER_PATH;
                 lNamesFile = PHOTO_NAMES;
+                lWhatToRemove = PHOTO_NAMES;
                 break;
         }
 
@@ -147,8 +150,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 .then(response => response.text())
                 .then(data => data));
 
-        rawText[rawText.length - 1] === ';' ? rawText = rawText.slice(0, -1) : 0
-        const parsedArr = rawText.split(';');
+        const parsedArr = rawText.split('\n');
+        parsedArr.removeChild(lWhatToRemove);
+        parsedArr.removeChild("");
 
         switch (flag) {
             case 'documents':
