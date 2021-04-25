@@ -2,8 +2,8 @@
     "news": [
         {
             "title": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ips",
-            "content": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-            "date": "date1"
+            "content": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsLorem ipsum Lorem ipsum Lorem ipsum Lorem ips Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsLorem ipsum Lorem ipsum Lorem ipsum Lorem ipsLorem ipsum Lorem ipsum Lorem ipsum Lorem ips",
+            "date": "25.04.2021"
         },
         {
             "title": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ips",
@@ -21,9 +21,9 @@
             "date": "date4"
         },
         {
-            "title": "",
-            "content": "",
-            "date": ""
+            "title": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ips",
+            "content": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsLorem ipsum Lorem ipsum Lorem ipsum Lorem ips Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsLorem ipsum Lorem ipsum Lorem ipsum Lorem ipsLorem ipsum Lorem ipsum Lorem ipsum Lorem ips",
+            "date": "25.04.2021"
         }
     ],
     "display": 5

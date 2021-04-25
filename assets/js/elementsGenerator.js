@@ -15,6 +15,7 @@ let documentListElement = document.getElementById('documentList');
 let galleryContainerElement = document.getElementById('galleryContainer');
 
 window.addEventListener('resize', () => {
+    if(!currentURL.includes("gallery.html")) return;
     windowSize = window.innerWidth;
     console.log(windowSize)
     if (windowSize > 736) {
