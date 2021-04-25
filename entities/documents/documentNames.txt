@@ -1,4 +1,3 @@
 document1.docx
 document1.pdf
 documentNames.txt
-temp_documentNames.txt

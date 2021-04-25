@@ -5,4 +5,3 @@
 05.jpg
 06.jpg
 imageNames.txt
-temp_imageNames.txt
