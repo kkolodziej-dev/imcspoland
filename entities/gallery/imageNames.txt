@@ -3,3 +3,7 @@
 03.jpg
 04.jpg
 05.jpg
+1200px-Cariboo_Peaks.jpg
+9.jpg
+Mały Giewont.jpg
+imageNames.txt
