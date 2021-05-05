@@ -8,10 +8,9 @@ let newsContainer = document.getElementById("newsContent");
 setNewsArray();
 
 async function setNewsArray() {
-    let lJson = await Promise.resolve(
-        fetch(NEWS_PATH)
-            .then(response => response.json())
-            .then(data => data));
+
+    let lJson = await fetch(NEWS_PATH)
+    .then(response => response.json());
 
     NEWS_DISPLAY = lJson.display;
     if (NEWS_DISPLAY > lJson.news.size) console.error("News display number is greater that the actual news number");
