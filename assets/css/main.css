@@ -3329,7 +3329,7 @@ input, select, textarea {
 			background-color: rgba(247, 247, 247, 0.95);
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
-			z-index: 10000;
+			z-index: 1000;
 		}
 
 			#nav.alt ul li {

@@ -1,8 +1,8 @@
 let windowSize = window.innerWidth;
-const DOCUMENT_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/documents/';
+const DOCUMENT_FOLDER_PATH = './entities/documents/';
 const DOCUMENT_NAMES = 'documentNames.txt'
 // const DOCUMENT_FOLDER_PATH = './entities/documents/';
-const PHOTO_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/gallery/';
+const PHOTO_FOLDER_PATH = './entities/gallery/';
 // const PHOTO_FOLDER_PATH = './entities/gallery/';
 const PHOTO_NAMES = 'imageNames.txt'
 
@@ -31,12 +31,13 @@ window.addEventListener('resize', () => {
 
 document.addEventListener('DOMContentLoaded', async () => {
     //populate elements
-    if(currentURL.includes('references.html')) {
+    if(currentURL.includes('references')) {
         await setElementsArray('documents');
         populateElementFields('documents');
-    } else if(currentURL.includes('gallery.html')) {
+    } else if(currentURL.includes('gallery')) {
         await setElementsArray('gallery');
         populateElementFields('gallery');
+        $('#galleryContainer').magnificPopup({type:'image', delegate:'img'});
     }
     
     function populateElementFields(flag) {
@@ -71,8 +72,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                     //create single image
                     let tempImg = document.createElement("img");
                     tempImg.setAttribute('src', folderPath + e);
+                    tempImg.setAttribute('href', folderPath + e);
                     tempImg.setAttribute('alt', e);
-
+                    tempImg.className = 'galleryImage';
+                    // $(tempImg).magnificPopup({type:'image'});
+                    
                     //append image to span
                     let tempInnerSpan = document.createElement("span");
                     tempInnerSpan.className = "image fit";
@@ -107,15 +111,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         e.addEventListener('mouseover', () => {
             e.style.cursor = 'pointer';
         })
-
-        if (folderPath === PHOTO_FOLDER_PATH) {
-            return;
-        }
+        
+        if (folderPath === DOCUMENT_FOLDER_PATH) {
         e.addEventListener('click', () =>  {
             download(folderPath, text);
         });
-        
-
+        }
     }
     
     function download(folderPath, elementName) {
@@ -142,10 +143,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 break;
         }
 
-        let rawText = await Promise.resolve(
-            fetch(lFolderPath + lNamesFile)
-                .then(response => response.text())
-                .then(data => data));
+        let rawText = await fetch(lFolderPath + lNamesFile)
+        .then(response => response.text());
 
         const parsedArr = rawText.split('\n');
         let filteredArr = parsedArr.filter(e => {
