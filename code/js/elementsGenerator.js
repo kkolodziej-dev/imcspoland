@@ -123,8 +123,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     function download(folderPath, elementName) {
         let docRefName = '';
         DOCUMENT_NAMES_ARRAY.forEach(mappingElement => {
-            if(mappingElement.docMapping.picture === elementName) {
-                docRefName = mappingElement.docMapping.document;
+            if(mappingElement.picture === elementName) {
+                docRefName = mappingElement.document;
             }
         })
         let element = document.createElement('a');
