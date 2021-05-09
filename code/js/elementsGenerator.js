@@ -1,11 +1,12 @@
 let windowSize = window.innerWidth;
 const DOCUMENT_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/documents/';
-const DOCUMENT_NAMES = 'documentNames.txt'
+const DOCUMENT_NAMES = 'documentPicNames.txt'
 // const DOCUMENT_FOLDER_PATH = './entities/documents/';
 const PHOTO_FOLDER_PATH = 'https://kkolodziej-dev.github.io/imcspoland/entities/gallery/';
 // const PHOTO_FOLDER_PATH = './entities/gallery/';
 const PHOTO_NAMES = 'imageNames.txt'
 
+let DOCUMENT_PIC_NAMES_ARRAY = [];
 let DOCUMENT_NAMES_ARRAY = [];
 let PHOTO_NAMES_ARRAY = [];
 
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         switch (flag) {
             case 'documents':
                 folderPath = DOCUMENT_FOLDER_PATH;
-                elementList = DOCUMENT_NAMES_ARRAY;
+                elementList = DOCUMENT_PIC_NAMES_ARRAY;
                 break;
             case 'gallery':
                 folderPath = PHOTO_FOLDER_PATH;
@@ -119,8 +120,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     function download(folderPath, elementName) {
+        let docRefName = '';
+        DOCUMENT_NAMES_ARRAY.forEach(mappingElement => {
+            if(mappingElement.docMapping.picture === elementName) {
+                docRefName = mappingElement.docMapping.document;
+            }
+        })
         let element = document.createElement('a');
-        element.setAttribute('href', folderPath + elementName);
+        element.setAttribute('href', folderPath + '/docs/' + docRefName);
         element.setAttribute('target', '_blank');
         element.style.display = 'none';
         document.body.appendChild(element);
@@ -142,6 +149,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 break;
         }
 
+        DOCUMENT_NAMES_ARRAY = fetch(lFolderPath + 'docs/docMapping.json').then(response => response.json());
         let rawText = await fetch(lFolderPath + lNamesFile)
         .then(response => response.text());
 
@@ -153,7 +161,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         switch (flag) {
             case 'documents':
-                DOCUMENT_NAMES_ARRAY = filteredArr;
+                DOCUMENT_PIC_NAMES_ARRAY = filteredArr;
                 break;
             case 'gallery':
                 PHOTO_NAMES_ARRAY = filteredArr;

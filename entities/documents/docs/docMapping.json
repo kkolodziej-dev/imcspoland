@@ -1,0 +1,12 @@
+{
+    "docMapping": [
+    {
+        "picture": "MESKO_logo.svg",
+        "document": "ref_MESKO.pdf"
+    },
+    {
+        "picture": "zaklady_mechaniczne_tarnow.jpg",
+        "document": "ref_ZMTarnow.pdf"
+    }
+]
+}
