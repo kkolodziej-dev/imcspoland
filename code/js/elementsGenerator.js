@@ -34,19 +34,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     //populate elements
     if(currentURL.includes('references')) {
         await setElementsArray('documents');
-        populateElementFields('documents');
+        await populateElementFields('documents');
     } else if(currentURL.includes('gallery')) {
         await setElementsArray('gallery');
-        populateElementFields('gallery');
+        await populateElementFields('gallery');
         $('#galleryContainer').magnificPopup({type:'image', delegate:'img'});
     }
     
-    function populateElementFields(flag) {
+    async function populateElementFields(flag) {
         let folderPath, elementList;
         switch (flag) {
             case 'documents':
                 folderPath = DOCUMENT_FOLDER_PATH;
                 elementList = DOCUMENT_PIC_NAMES_ARRAY;
+                DOCUMENT_NAMES_ARRAY = await fetch(folderPath + 'docs/docMapping.json').then(response => response.json());
                 break;
             case 'gallery':
                 folderPath = PHOTO_FOLDER_PATH;
@@ -149,7 +150,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 break;
         }
 
-        DOCUMENT_NAMES_ARRAY = await fetch(lFolderPath + 'docs/docMapping.json').then(response => response.json());
         let rawText = await fetch(lFolderPath + lNamesFile)
         .then(response => response.text());
 

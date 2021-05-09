@@ -28,6 +28,7 @@ jobs:
       # ls entities/documents > entities/documents/documentNames.txt
       - name: Run a multi-line script
         run: |
+              git pull
               ls entities/gallery > entities/gallery/imageNames.txt
               ls entities/documents > entities/documents/documentPicNames.txt
       
