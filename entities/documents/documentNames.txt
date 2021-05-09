@@ -1,0 +1,6 @@
+MESKO_logo.svg.png
+docs
+documentNames.txt
+documentPicNames.txt
+logo IMCS+napis-01.jpg
+zaklady_mechaniczne_tarnow.png
