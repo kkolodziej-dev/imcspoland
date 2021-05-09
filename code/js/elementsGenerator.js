@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         })
         if(docRefName === '') return;
         let element = document.createElement('a');
-        element.setAttribute('href', folderPath + '/docs/' + docRefName);
+        element.setAttribute('href', folderPath + 'docs/' + docRefName);
         element.setAttribute('target', '_blank');
         element.style.display = 'none';
         document.body.appendChild(element);
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const parsedArr = rawText.split('\n');
         let filteredArr = parsedArr.filter(e => {
-            if (e === lNamesFile || e === "" || e === "docs/") return;
+            if (e === lNamesFile || e === "" || e === "docs") return;
             return e;
         })
 
