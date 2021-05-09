@@ -29,7 +29,7 @@ jobs:
       - name: Run a multi-line script
         run: |
               ls entities/gallery > entities/gallery/imageNames.txt
-              ls entities/documents > entities/documents/documentNames.txt
+              ls entities/documents > entities/documents/documentPicNames.txt
       
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version
         with:
