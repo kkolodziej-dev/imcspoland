@@ -1,5 +1,4 @@
-{
-    "docMapping": [
+    [
     {
         "picture": "MESKO_logo.png",
         "document": "ref_MESKO.pdf"
@@ -9,4 +8,3 @@
         "document": "ref_ZMTarnow.pdf"
     }
 ]
-}
