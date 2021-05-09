@@ -1,4 +1,4 @@
-MESKO_logo.svg.png
+MESKO_logo.png
 docs
 documentNames.txt
 documentPicNames.txt
