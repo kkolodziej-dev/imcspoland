@@ -56,19 +56,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         //construct the documents
         elementList.forEach(e => {
             let tempContainerMember;
-            switch (flag) {
-                case 'documents':
-                    tempContainerMember = document.createElement("span");
-                    tempContainerMember.innerText = e;
-                    tempContainerMember.setAttribute('title', e);
-                    tempContainerMember.className = "icon minor style6 fad fa-file-alt";
+            // switch (flag) {
+            //     case 'documents':
+            //         tempContainerMember = document.createElement("span");
+            //         tempContainerMember.innerText = e;
+            //         tempContainerMember.setAttribute('title', e);
+            //         tempContainerMember.className = "icon minor style6 fad fa-file-alt";
 
-                    let tempLi = document.createElement("li");
-                    setEventListeners(folderPath, tempContainerMember, e);
-                    tempLi.appendChild(tempContainerMember);
-                    elementArray.push(tempLi);
-                    break;
-                case 'gallery':
+            //         let tempLi = document.createElement("li");
+            //         setEventListeners(folderPath, tempContainerMember, e);
+            //         tempLi.appendChild(tempContainerMember);
+            //         elementArray.push(tempLi);
+            //         break;
+            //     case 'gallery':
                     //create single image
                     let tempImg = document.createElement("img");
                     tempImg.setAttribute('src', folderPath + e);
@@ -89,8 +89,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     tempContainerMember.appendChild(tempInnerSpan);
                     setEventListeners(folderPath, tempInnerSpan, e);
                     elementArray.push(tempContainerMember);
-                    break;
-            }
+                    // break;
+            // }
         })
 
         //append ready document objects to the document list element
