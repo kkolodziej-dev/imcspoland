@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 break;
         }
 
-        DOCUMENT_NAMES_ARRAY = fetch(lFolderPath + 'docs/docMapping.json').then(response => response.json());
+        DOCUMENT_NAMES_ARRAY = await fetch(lFolderPath + 'docs/docMapping.json').then(response => response.json());
         let rawText = await fetch(lFolderPath + lNamesFile)
         .then(response => response.text());
 
