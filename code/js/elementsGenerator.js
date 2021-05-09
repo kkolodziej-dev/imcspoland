@@ -127,6 +127,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 docRefName = mappingElement.document;
             }
         })
+        if(docRefName === '') return;
         let element = document.createElement('a');
         element.setAttribute('href', folderPath + '/docs/' + docRefName);
         element.setAttribute('target', '_blank');
