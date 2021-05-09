@@ -1,4 +1,6 @@
-MESKO_logo.svg.png
+MESKO_logo.png
+docs
 documentNames.txt
+documentPicNames.txt
 logo IMCS+napis-01.jpg
-logo-trojkaty-na-gorze-1024x397.png
+zaklady_mechaniczne_tarnow.png
