@@ -335,7 +335,7 @@ input, select, textarea {
 		display: flex;
 		flex-wrap: wrap;
 		box-sizing: border-box;
-		align-items: stretch;
+		align-items: center;
 	}
 
 		.row > * {
@@ -527,7 +527,7 @@ input, select, textarea {
 		}
 
 			.row > * {
-				padding: 0 0 0 1.5em;
+				padding: 1em 1em 1em 1em;
 			}
 
 			.row.gtr-uniform {
@@ -578,7 +578,7 @@ input, select, textarea {
 				display: flex;
 				flex-wrap: wrap;
 				box-sizing: border-box;
-				align-items: stretch;
+				align-items: center;
 			}
 
 				.row > * {
@@ -823,7 +823,7 @@ input, select, textarea {
 				display: flex;
 				flex-wrap: wrap;
 				box-sizing: border-box;
-				align-items: stretch;
+				align-items: center;
 			}
 
 				.row > * {
@@ -1313,7 +1313,7 @@ input, select, textarea {
 				display: flex;
 				flex-wrap: wrap;
 				box-sizing: border-box;
-				align-items: stretch;
+				align-items: center;
 			}
 
 				.row > * {
@@ -1559,7 +1559,7 @@ input, select, textarea {
 				flex-wrap: wrap;
 				justify-content: center;
 				box-sizing: border-box;
-				align-items: stretch;
+				align-items: center;
 			}
 
 				.row > * {
@@ -3656,6 +3656,10 @@ input, select, textarea {
 
 		@media screen and (max-width: 736px) {
 
+			#main {
+				border-radius: 0;
+			}
+			
 			#main > .main {
 				padding: 3em 2em 1em 2em ;
 			}
@@ -4173,4 +4177,19 @@ input, select, textarea {
 
 		}
 
+/* gallery container*/
+
+
+
+@media screen and (max-width: 736px) {
+	#galleryContainer {
+		flex-direction: column;
+	}
+}
+
+@media screen {
+	#galleryContainer {
+		flex-direction: row;
+	}
+}
 

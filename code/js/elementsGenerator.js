@@ -15,20 +15,28 @@ let currentURL = window.location.href;
 let documentListElement = document.getElementById('documentList');
 let galleryContainerElement = document.getElementById('galleryContainer');
 
-window.addEventListener('resize', () => {
-    if(!currentURL.includes("gallery.html")) return;
-    windowSize = window.innerWidth;
-    console.log(windowSize)
-    if (windowSize > 736) {
-        galleryContainerElement.childNodes.forEach(element => {
-            element.className = "col-4"
-        })
-    } else {
-        galleryContainerElement.childNodes.forEach(element => {
-            element.className = "col-10"
-        })
-    }
-})
+// window.addEventListener('resize', () => {
+//     if(!currentURL.includes("gallery.html")) return;
+//     windowSize = window.innerWidth;
+//     console.log(windowSize)
+//     if (windowSize > 736) {
+//         galleryContainerElement.style.flexDirection = 'column';
+//         // galleryContainerElement.childNodes.forEach(element => {
+            
+//         //     // element.className = "col-4";
+//         //     // element.span.img.style.maxHeight = '20vh';
+//         //     // element.span.img.style.maxWidth = '30vh';
+//         // })
+//     } else {
+//         galleryContainerElement.style.flexDirection = 'row';
+//         // galleryContainerElement.childNodes.forEach(element => {
+//         //     // element.style.
+//         //     // element.className = "col-10"
+//         //     // element.style.maxHeight = '30vh';
+//         //     // element.style.maxWidth = '50vh';
+//         // })
+//     }
+// })
 
 document.addEventListener('DOMContentLoaded', async () => {
     //populate elements
@@ -76,20 +84,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                     tempImg.setAttribute('src', folderPath + e);
                     tempImg.setAttribute('href', folderPath + e);
                     tempImg.setAttribute('alt', e);
-                    tempImg.className = 'galleryImage';
-                    
-                    //append image to span
-                    let tempInnerSpan = document.createElement("span");
-                    tempInnerSpan.className = "image fit";
-                    tempInnerSpan.appendChild(tempImg);
+                    tempImg.className = 'galleryImage image fit';
 
                     //append span to div
                     tempContainerMember = document.createElement("div");
                     tempContainerMember.className = windowSize > 736 ? "col-4" : "col-10";
                     tempContainerMember.id = e;
                     tempContainerMember.setAttribute('title', e);
-                    tempContainerMember.appendChild(tempInnerSpan);
-                    setEventListeners(folderPath, tempInnerSpan, e);
+                    tempContainerMember.appendChild(tempImg);
+                    setEventListeners(folderPath, tempImg, e);
                     elementArray.push(tempContainerMember);
                     // break;
             // }
