@@ -7,4 +7,3 @@ IMG_3841.jpg
 fol_1.jpg
 imageNames.txt
 mi8.jpg
-mi8_2.jpg
