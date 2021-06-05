@@ -3369,7 +3369,7 @@ input, select, textarea {
 			color: #636363;
 		}
 
-		#main h1, #main h2, #main h3, #main h4, #main h5, #main h6 {
+		#main h1, #main h2, #main h4, #main h5, #main h6 {
 			color: #636363;
 		}
 
@@ -4188,3 +4188,9 @@ input, select, textarea {
 	}
 }
 
+.customHeader {
+	background-color: #f01b1b;
+    display: inline;
+    font-weight: bold;
+	color: #ffffff;
+}

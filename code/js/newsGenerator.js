@@ -20,8 +20,8 @@ async function setNewsArray() {
         lDiv.className = "singleNews";
 
         let lH3 = document.createElement("h3");
-        // lH3.className = "news0margin";
         lH3.innerText = lJson.news[i].title;
+        lH3.className = 'customHeader';
         lDiv.appendChild(lH3);
 
         let lP = document.createElement("p");
