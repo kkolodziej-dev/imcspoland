@@ -4194,3 +4194,7 @@ input, select, textarea {
     font-weight: bold;
 	color: #ffffff;
 }
+
+.regularHeader {
+	color: #636363;
+}
