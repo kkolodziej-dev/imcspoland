@@ -30,9 +30,5 @@
     {
         "picture": "wzl-logo.png",
         "document": "ref_WZL.pdf"
-    },
-    {
-        "picture": "test_a.jpg",
-        "document": "test_a.docx"
     }
 ]
