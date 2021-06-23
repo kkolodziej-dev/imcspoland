@@ -6,5 +6,6 @@ documentPicNames.txt
 iu-logo.png
 kuhene-logo.png
 pgz-logo.jpg
+test_a.jpg
 wzl-logo.png
 zaklady_mechaniczne_tarnow.png
